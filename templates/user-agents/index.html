@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>User Agents | Web Crawler</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}"/>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.svg') }}"/>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}"/>
+  <meta name="robots" content="noindex"/>
+  <meta name="googlebot" content="noindex"/>
+  <script type="module">
+    import {populateUserAgentsTable} from "../../static/js/userAgents.mjs";
+    import {toggleNavigationMenuVisibility} from "../../static/js/lib/utils.mjs";
+
+    populateUserAgentsTable();
+    toggleNavigationMenuVisibility();
+  </script>
+</head>
+<body>
+{% include 'partials/header.html' %}
+<main>
+  <div>
+    <h1>User Agents (<span></span>)</h1>
+    <progress id="progress1" hidden="hidden" max="100">%</progress>
+    <table id="websites-table">
+      <thead>
+      <tr>
+        <th>Name</th>
+      </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+</main>
+{% include 'partials/footer.html' %}
+</body>
+</html>

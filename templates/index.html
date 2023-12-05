@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Web Crawler</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}"/>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.svg') }}"/>
+  <meta name="robots" content="noindex"/>
+  <meta name="googlebot" content="noindex"/>
+  <script type="module">
+    import {initiateCrawler} from "../static/js/crawler.mjs";
+    import {toggleNavigationMenuVisibility} from "../static/js/lib/utils.mjs";
+
+    initiateCrawler();
+    toggleNavigationMenuVisibility();
+  </script>
+</head>
+<body>
+{% include 'partials/header.html' %}
+<main>
+  <h1>Web Crawler</h1>
+  <h2>Classes</h2>
+  <ol>
+    <li><a href="/politicians">Politicians</a></li>
+    <li><a href="/websites">Websites</a></li>
+    <li><a href="/user-agents">User Agents</a></li>
+  </ol>
+  <h2>Crawler</h2>
+  <button id="triggerButton">Start Crawler</button>
+  <progress id="progress1" hidden="hidden" max="100">%</progress>
+</main>
+{% include 'partials/footer.html' %}
+</body>
+</html>
